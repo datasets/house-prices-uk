@@ -5,24 +5,19 @@ http://www.nationwide.co.uk/hpi/historical.htm
 '''
 import os
 import logging
+import urllib
 
 logger = logging.getLogger(__name__)
 
-base = 'http://www.nationwide.co.uk/hpi/'
-fns = [
-    'downloads/UK_house_price_since_1952.xls',
-    ]
-urls = [ base + fn for fn in fns ]
-
-from swiss.cache import Cache 
-import swiss.tabular as T
-cache = os.path.join(os.path.dirname(__file__), 'cache')
-retriever = Cache(cache)
+import datautil.tabular as T
 
 class Parser(object):
 
     def download(self):
-        self.localfps = [ retriever.retrieve(url) for url in urls ]
+        nationwide = 'http://www.nationwide.co.uk/hpi/downloads/UK_house_price_since_1952.xls'
+        fp = 'cache/nationwide.xls'
+        urllib.urlretrieve(nationwide, fp)
+        self.localfps = [ fp ]
 
     def extract(self):
         logger.info('Extracting data from Xls')

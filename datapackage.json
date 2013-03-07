@@ -1,0 +1,45 @@
+{
+  "name": "house-prices-uk",
+  "title": "House Prices in the UK since 1953",
+  "sources": [{
+    "name": "Nationwide",
+    "web": "http://www.nationwide.co.uk/hpi/historical.htm"
+  }],
+  "licenses": [{
+    "id": "odc-pddl",
+    "url": "http://opendatacommons.org/licenses/pddl/"
+  }],
+  "maintainers": [{
+    "name": "Rufus Pollock",
+    "web": "http://rufuspollock.org/"
+  }],
+  "files": [
+    {
+      "path": "data.csv",
+      "schema": {
+        "fields": [
+          {
+            "type": "number", 
+            "id": "Date"
+          }, 
+          {
+            "type": "number", 
+            "id": "Price (All)"
+          }, 
+          {
+            "type": "number", 
+            "id": "Price (New)"
+          }, 
+          {
+            "type": "number", 
+            "id": "Price (Modern)"
+          }, 
+          {
+            "type": "number", 
+            "id": "Price (Older)"
+          }
+        ]
+      }
+    }
+  ]
+}

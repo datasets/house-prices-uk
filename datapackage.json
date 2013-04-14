@@ -13,7 +13,7 @@
     "name": "Rufus Pollock",
     "web": "http://rufuspollock.org/"
   }],
-  "files": [
+  "resources": [
     {
       "path": "data.csv",
       "schema": {

@@ -19,7 +19,7 @@
       "schema": {
         "fields": [
           {
-            "type": "number", 
+            "type": "date", 
             "id": "Date"
           }, 
           {

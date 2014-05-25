@@ -14,7 +14,7 @@ import datautil.tabular as T
 class Parser(object):
 
     def download(self):
-        nationwide = 'http://www.nationwide.co.uk/hpi/downloads/UK_house_price_since_1952.xls'
+        nationwide = 'http://www.nationwide.co.uk/~/media/MainSite/documents/about/house-price-index/downloads/uk-house-price-since-1952.xls'
         fp = 'cache/nationwide.xls'
         urllib.urlretrieve(nationwide, fp)
         self.localfps = [ fp ]
@@ -28,13 +28,29 @@ class Parser(object):
         tdata = reader.read()
         data = tdata.data
         out = T.TabularData()
-        out.header = [ 'Date', 'Price (All)', 'Price (New)', 'Price (Modern)', 'Price (Older)' ]
+        out.header = [ 'Date', 'Price (All)', 'Change (All)', 'Price (New)', 'Change (New)', 'Price (Modern)', 'Change (Modern)', 'Price (Older)' ]
         data = data[6:]
         data = zip(*data)
         def fix_date(indate): # e.g Q1 1952
             q,year = indate.split()
-            return int(year) + int(q[1])/4.0
-        data = [ [fix_date(x) for x in data[0]], data[2], data[5], data[8], data[11] ]
+            return '%s-%02d-01' % (int(year), (int(q[1])-1) * 3 + 2)
+        def fixup(series, decplaces=0):
+            out = [ round((x if (x not in ['', ' ']) else 0), decplaces) for x in series ]
+            if decplaces == 0:
+                out = [ int(x) for x in out ]
+            return out
+
+        data = [
+            [fix_date(x) for x in data[0]],
+            fixup(data[2]),
+            fixup(data[3], 1),
+            fixup(data[5]),
+            fixup(data[6], 1),
+            fixup(data[8]),
+            fixup(data[9], 1),
+            fixup(data[11]),
+            fixup(data[12], 1)
+            ]
         out.data = list(zip(*data))
         # outfp = 'data.js'
         # writer = T.JsonWriter()
@@ -42,6 +58,10 @@ class Parser(object):
         writer = T.CsvWriter()
         writer.write(out, open(outfp, 'w'))
         logger.info('Data successfully extracted to: %s' % outfp)
+
+    def process(self):
+        self.download()
+        self.extract()
 
 import optparse
 import inspect

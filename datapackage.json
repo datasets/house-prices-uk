@@ -58,5 +58,17 @@
         ]
       }
     }
+  ],
+  "views": [
+    {
+      "id": "Graph",
+      "label": "House Prices",
+      "type": "Graph",
+      "state": {
+        "graphType": "lines",
+        "group": "Date",
+        "series": [ "Price (All)" ]
+      }
+    }
   ]
 }

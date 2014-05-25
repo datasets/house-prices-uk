@@ -33,5 +33,5 @@ From the source XLS file (notes tab):
 
 Run:
 
-    python data.py process
+    python scripts/data.py process
 

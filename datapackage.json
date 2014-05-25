@@ -5,38 +5,55 @@
     "name": "Nationwide",
     "web": "http://www.nationwide.co.uk/hpi/historical.htm"
   }],
-  "licenses": [{
-    "id": "odc-pddl",
-    "url": "http://opendatacommons.org/licenses/pddl/"
-  }],
+  "license": "PDDL-1.0",
   "maintainers": [{
     "name": "Rufus Pollock",
     "web": "http://rufuspollock.org/"
   }],
   "resources": [
     {
-      "path": "data.csv",
+      "path": "data/data.csv",
       "schema": {
         "fields": [
           {
             "type": "date", 
-            "id": "Date"
+            "name": "Date"
           }, 
           {
             "type": "number", 
-            "id": "Price (All)"
+            "name": "Price (All)"
           }, 
           {
             "type": "number", 
-            "id": "Price (New)"
+            "format": "percentage",
+            "name": "Change (All)"
           }, 
           {
             "type": "number", 
-            "id": "Price (Modern)"
+            "name": "Price (New)"
           }, 
           {
             "type": "number", 
-            "id": "Price (Older)"
+            "format": "percentage",
+            "name": "Change (New)"
+          }, 
+          {
+            "type": "number", 
+            "name": "Price (Modern)"
+          }, 
+          {
+            "type": "number", 
+            "format": "percentage",
+            "name": "Change (Modern)"
+          }, 
+          {
+            "type": "number", 
+            "name": "Price (Older)"
+          },
+          {
+            "type": "number", 
+            "format": "percentage",
+            "name": "Change (Older)"
           }
         ]
       }

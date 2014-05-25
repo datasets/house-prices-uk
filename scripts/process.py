@@ -28,7 +28,7 @@ class Parser(object):
         tdata = reader.read()
         data = tdata.data
         out = T.TabularData()
-        out.header = [ 'Date', 'Price (All)', 'Change (All)', 'Price (New)', 'Change (New)', 'Price (Modern)', 'Change (Modern)', 'Price (Older)' ]
+        out.header = [ 'Date', 'Price (All)', 'Change (All)', 'Price (New)', 'Change (New)', 'Price (Modern)', 'Change (Modern)', 'Price (Older)', 'Change (Older)' ]
         data = data[6:]
         data = zip(*data)
         def fix_date(indate): # e.g Q1 1952
@@ -54,7 +54,7 @@ class Parser(object):
         out.data = list(zip(*data))
         # outfp = 'data.js'
         # writer = T.JsonWriter()
-        outfp = 'data.csv'
+        outfp = 'data/data.csv'
         writer = T.CsvWriter()
         writer.write(out, open(outfp, 'w'))
         logger.info('Data successfully extracted to: %s' % outfp)

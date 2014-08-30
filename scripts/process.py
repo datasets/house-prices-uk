@@ -12,17 +12,19 @@ logger = logging.getLogger(__name__)
 import datautil.tabular as T
 
 class Parser(object):
+    nationwide_archive_fp = 'archive/nationwide.xls'
+    nationwide_data_fp = 'data/data.csv'
 
     def download(self):
+        '''Download the data to the archive (cache)'''
         nationwide = 'http://www.nationwide.co.uk/~/media/MainSite/documents/about/house-price-index/downloads/uk-house-price-since-1952.xls'
-        fp = 'cache/nationwide.xls'
-        urllib.urlretrieve(nationwide, fp)
-        self.localfps = [ fp ]
+        urllib.urlretrieve(nationwide, self.nationwide_archive_fp)
 
     def extract(self):
+        '''Extract data from archive to output data file'''
         logger.info('Extracting data from Xls')
         self.download()
-        fp = self.localfps[0]
+        fp = self.nationwide_archive_fp
         reader = T.XlsReader(fp)
         # notes are on 2nd page but ignore for time being
         tdata = reader.read()
@@ -52,14 +54,13 @@ class Parser(object):
             fixup(data[12], 1)
             ]
         out.data = list(zip(*data))
-        # outfp = 'data.js'
-        # writer = T.JsonWriter()
-        outfp = 'data/data.csv'
         writer = T.CsvWriter()
-        writer.write(out, open(outfp, 'w'))
-        logger.info('Data successfully extracted to: %s' % outfp)
+        writer.write(out, open(self.nationwide_data_fp, 'w'))
+        logger.info('Data successfully extracted to: %s' %
+                self.nationwide_data_fp)
 
     def process(self):
+        '''Do download then extract'''
         self.download()
         self.extract()
 

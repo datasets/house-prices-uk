@@ -1,73 +1,82 @@
 {
   "name": "house-prices-uk",
   "title": "House Prices in the UK since 1953",
-  "sources": [{
-    "name": "Nationwide",
-    "web": "http://www.nationwide.co.uk/hpi/historical.htm"
-  }],
+  "sources": [
+    {
+      "name": "Nationwide",
+      "web": "http://www.nationwide.co.uk/hpi/historical.htm",
+      "title": "Nationwide"
+    }
+  ],
   "license": "PDDL-1.0",
-  "maintainers": [{
-    "name": "Rufus Pollock",
-    "web": "http://rufuspollock.org/"
-  }],
+  "maintainers": [
+    {
+      "name": "Rufus Pollock",
+      "web": "http://rufuspollock.org/"
+    }
+  ],
   "resources": [
     {
       "path": "data/data.csv",
       "schema": {
         "fields": [
           {
-            "type": "date", 
-            "name": "Date"
-          }, 
+            "type": "date",
+            "name": "Date",
+            "format": "any"
+          },
           {
-            "type": "number", 
+            "type": "number",
             "name": "Price (All)"
-          }, 
+          },
           {
-            "type": "number", 
+            "type": "number",
             "format": "percentage",
             "name": "Change (All)"
-          }, 
+          },
           {
-            "type": "number", 
+            "type": "number",
             "name": "Price (New)"
-          }, 
+          },
           {
-            "type": "number", 
+            "type": "number",
             "format": "percentage",
             "name": "Change (New)"
-          }, 
+          },
           {
-            "type": "number", 
+            "type": "number",
             "name": "Price (Modern)"
-          }, 
+          },
           {
-            "type": "number", 
+            "type": "number",
             "format": "percentage",
             "name": "Change (Modern)"
-          }, 
+          },
           {
-            "type": "number", 
+            "type": "number",
             "name": "Price (Older)"
           },
           {
-            "type": "number", 
+            "type": "number",
             "format": "percentage",
             "name": "Change (Older)"
           }
         ]
-      }
+      },
+      "name": "data"
     }
   ],
   "views": [
     {
-      "id": "Graph",
-      "label": "House Prices",
-      "type": "Graph",
-      "state": {
-        "graphType": "lines",
+      "name": "graph",
+      "title": "House Prices in the UK since 1953",
+      "specType": "simple",
+      "spec": {
+        "type": "line",
         "group": "Date",
-        "series": [ "Price (All)" ]
+        "series": [
+          "Price (All)"
+        ]
       }
     }
   ]

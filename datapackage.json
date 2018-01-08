@@ -31,7 +31,6 @@
           },
           {
             "type": "number",
-            "format": "percentage",
             "name": "Change (All)"
           },
           {
@@ -40,7 +39,6 @@
           },
           {
             "type": "number",
-            "format": "percentage",
             "name": "Change (New)"
           },
           {
@@ -49,7 +47,6 @@
           },
           {
             "type": "number",
-            "format": "percentage",
             "name": "Change (Modern)"
           },
           {
@@ -58,7 +55,6 @@
           },
           {
             "type": "number",
-            "format": "percentage",
             "name": "Change (Older)"
           }
         ]

@@ -1,11 +1,11 @@
 UK house prices since 1953 as monthly time-series. Data comes from the Nationwide.
 
-Source: <http://www.nationwide.co.uk/hpi/historical.htm>
-
 ## Data
 
 Data can be found in the `data/data.csv` file. See datapackage.json for
 source info.
+
+Source: <http://www.nationwide.co.uk/hpi/historical.htm>
 
 ### Notes
 
@@ -31,7 +31,12 @@ From the source XLS file (notes tab):
 
 ## Preparation
 
-Run:
+Process is recorded and automated in python script:
 
-    python scripts/data.py process
+```python
+python scripts/data.py process
+```
 
+## License
+
+This Data Package is licensed by its maintainers under the [Public Domain Dedication and License (PDDL)](http://opendatacommons.org/licenses/pddl/1.0/).

@@ -11,7 +11,7 @@
   ],
   "resources": [
     {
-      "name": "house-prices-uk",
+      "name": "source-xls",
       "path": "http://www.nationwide.co.uk/~/media/MainSite/documents/about/house-price-index/downloads/uk-house-price-since-1952.xls",
       "format": "xls",
       "schema": {

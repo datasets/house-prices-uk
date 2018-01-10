@@ -22,12 +22,20 @@
             "format": "any"
           },
           {
+            "name": "index",
+            "type": "number"
+          },
+          {
             "type": "number",
             "name": "Price (All)"
           },
           {
             "type": "number",
             "name": "Change (All)"
+          },
+          {
+            "name": "index",
+            "type": "number"
           },
           {
             "type": "number",
@@ -38,12 +46,20 @@
             "name": "Change (New)"
           },
           {
+            "name": "index",
+            "type": "number"
+          },
+          {
             "type": "number",
             "name": "Price (Modern)"
           },
           {
             "type": "number",
             "name": "Change (Modern)"
+          },
+          {
+            "name": "index",
+            "type": "number"
           },
           {
             "type": "number",

@@ -11,68 +11,6 @@
   ],
   "resources": [
     {
-      "name": "source-xls",
-      "path": "http://www.nationwide.co.uk/~/media/MainSite/documents/about/house-price-index/downloads/uk-house-price-since-1952.xls",
-      "format": "xls",
-      "schema": {
-        "fields": [
-          {
-            "type": "date",
-            "name": "Date",
-            "format": "any"
-          },
-          {
-            "name": "index",
-            "type": "number"
-          },
-          {
-            "type": "number",
-            "name": "Price (All)"
-          },
-          {
-            "type": "number",
-            "name": "Change (All)"
-          },
-          {
-            "name": "index",
-            "type": "number"
-          },
-          {
-            "type": "number",
-            "name": "Price (New)"
-          },
-          {
-            "type": "number",
-            "name": "Change (New)"
-          },
-          {
-            "name": "index",
-            "type": "number"
-          },
-          {
-            "type": "number",
-            "name": "Price (Modern)"
-          },
-          {
-            "type": "number",
-            "name": "Change (Modern)"
-          },
-          {
-            "name": "index",
-            "type": "number"
-          },
-          {
-            "type": "number",
-            "name": "Price (Older)"
-          },
-          {
-            "type": "number",
-            "name": "Change (Older)"
-          }
-        ]
-      }
-    },
-    {
       "name": "data",
       "path": "data/data.csv",
       "schema": {
@@ -83,12 +21,20 @@
             "format": "any"
           },
           {
+            "name": "index",
+            "type": "number"
+          },
+          {
             "type": "number",
             "name": "Price (All)"
           },
           {
             "type": "number",
             "name": "Change (All)"
+          },
+          {
+            "name": "index",
+            "type": "number"
           },
           {
             "type": "number",
@@ -99,12 +45,20 @@
             "name": "Change (New)"
           },
           {
+            "name": "index",
+            "type": "number"
+          },
+          {
             "type": "number",
             "name": "Price (Modern)"
           },
           {
             "type": "number",
             "name": "Change (Modern)"
+          },
+          {
+            "name": "index",
+            "type": "number"
           },
           {
             "type": "number",

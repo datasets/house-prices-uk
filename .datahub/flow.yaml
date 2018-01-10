@@ -11,11 +11,11 @@ inputs:
     parameters:
       resource-mapping:
         # the link to original data-source file
-        source-xls: http://www.nationwide.co.uk/~/media/MainSite/documents/about/house-price-index/downloads/uk-house-price-since-1952.xls
+        data: http://www.nationwide.co.uk/~/media/MainSite/documents/about/house-price-index/downloads/uk-house-price-since-1952.xls
 
 processing:
   -
-    input: source-xls
+    input: data
     tabulator:
       format: xls
       skip_rows: 1,2,3,4,5,6

@@ -1,0 +1,52 @@
+meta:
+  dataset: house-prices-uk
+  findability: public
+  owner: AcckiyGerman
+  ownerid: a08d3588fbae0355042537595c65819d
+
+inputs:
+  -
+    kind: datapackage
+    url: https://raw.githubusercontent.com/datasets/house-prices-uk/master/.datahub/datapackage.json
+    parameters:
+      resource-mapping:
+        # the link to original data-source file
+        source-xls: http://www.nationwide.co.uk/~/media/MainSite/documents/about/house-price-index/downloads/uk-house-price-since-1952.xls
+
+processing:
+  -
+    input: source-xls
+    tabulator:
+      format: xls
+      skip_rows: 1,2,3,4,5,6
+      headers:
+       - date
+       - index all
+       - Price (All)
+       - Change (All)
+       - index new
+       - Price (New)
+       - Change (New)
+       - index modern
+       - Price (Modern)
+       - Change (Modern)
+       - index old
+       - Price (Older)
+       - Change (Older)
+    output: data
+
+  -
+    input: data
+    dpp:
+      -
+        run: delete_fields
+        parameters:
+          resources: data
+          fields:
+            - index all
+            - index new
+            - index modern
+            - index old
+    output: data
+
+schedule: every 91d  # every quarter

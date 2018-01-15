@@ -1,15 +1,17 @@
-'''UK House Price data
+"""
+UK House Price data
 
 extracted links from html source of 
 http://www.nationwide.co.uk/hpi/historical.htm
-'''
-import os
+"""
 import logging
 import urllib
+import datautil.tabular as T
+import optparse
+import inspect
 
 logger = logging.getLogger(__name__)
 
-import datautil.tabular as T
 
 class Parser(object):
     nationwide_archive_fp = 'archive/nationwide.xls'
@@ -20,11 +22,18 @@ class Parser(object):
         nationwide = 'http://www.nationwide.co.uk/~/media/MainSite/documents/about/house-price-index/downloads/uk-house-price-since-1952.xls'
         urllib.urlretrieve(nationwide, self.nationwide_archive_fp)
 
-    def extract(self):
+    def process(self):
         '''Extract data from archive to output data file'''
         logger.info('Extracting data from Xls')
-        self.download()
-        fp = self.nationwide_archive_fp
+
+        # the remote site has ssl problem
+        # IOError: [Errno socket error] [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:590)
+        # self.download()
+        # fp = self.nationwide_archive_fp
+
+        # so I downloaded source file manually (jan2018)
+        fp = 'archive/uk-house-price-since-1952.xls'
+
         reader = T.XlsReader(fp)
         # notes are on 2nd page but ignore for time being
         tdata = reader.read()
@@ -33,13 +42,16 @@ class Parser(object):
         out.header = [ 'Date', 'Price (All)', 'Change (All)', 'Price (New)', 'Change (New)', 'Price (Modern)', 'Change (Modern)', 'Price (Older)', 'Change (Older)' ]
         data = data[6:]
         data = zip(*data)
+
         def fix_date(indate): # e.g Q1 1952
             q,year = indate.split()
             return '%s-%02d-01' % (int(year), (int(q[1])-1) * 3 + 2)
+
         def fixup(series, decplaces=0):
-            out = [ round((x if (x not in ['', ' ']) else 0), decplaces) for x in series ]
+            out = [round((x if type(x) is float else 0), decplaces) for x in series]
+
             if decplaces == 0:
-                out = [ int(x) for x in out ]
+                out = [int(x) for x in out]
             return out
 
         data = [
@@ -56,16 +68,8 @@ class Parser(object):
         out.data = list(zip(*data))
         writer = T.CsvWriter()
         writer.write(out, open(self.nationwide_data_fp, 'w'))
-        logger.info('Data successfully extracted to: %s' %
-                self.nationwide_data_fp)
+        logger.info('Data successfully extracted to: %s' % self.nationwide_data_fp)
 
-    def process(self):
-        '''Do download then extract'''
-        self.download()
-        self.extract()
-
-import optparse
-import inspect
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     methods = dict(inspect.getmembers(Parser, lambda x: inspect.ismethod(x) and not

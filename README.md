@@ -31,9 +31,10 @@ From the source XLS file (notes tab):
 
 ## Preparation
 
-Process is recorded and automated in python script:
+Process is recorded and automated in python2 script:
 
-```python
+```bash
+pip install datautil xlrd
 python scripts/data.py process
 ```
 

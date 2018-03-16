@@ -4,9 +4,8 @@
   "sources": [
     {
       "name": "Nationwide",
-      "web": "http://www.nationwide.co.uk/hpi/historical.htm",
       "title": "Nationwide",
-      "url": "https://www.nationwide.co.uk/~/media/MainSite/documents/about/house-price-index/downloads/uk-house-price-since-1952.xls"
+      "path": "https://www.nationwide.co.uk/~/media/MainSite/documents/about/house-price-index/downloads/uk-house-price-since-1952.xls"
     }
   ],
   "resources": [

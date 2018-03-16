@@ -4,15 +4,22 @@
   "sources": [
     {
       "name": "Nationwide",
-      "web": "http://www.nationwide.co.uk/hpi/historical.htm",
+      "path": "http://www.nationwide.co.uk/hpi/historical.htm",
       "title": "Nationwide"
     }
   ],
-  "license": "PDDL-1.0",
-  "maintainers": [
+  "licenses": [
+    {
+      "name": "ODC-PDDL-1.0",
+      "path": "http://opendatacommons.org/licenses/pddl/",
+      "title": "Open Data Commons Public Domain Dedication and License v1.0"
+    }
+  ],
+  "contributors": [
     {
       "name": "Rufus Pollock",
-      "web": "http://rufuspollock.org/"
+      "path": "http://rufuspollock.org/",
+      "role": "maintainer"
     }
   ],
   "resources": [

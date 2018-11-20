@@ -35,7 +35,7 @@ Process is recorded and automated in python2 script:
 
 ```bash
 pip install datautil xlrd
-python scripts/data.py process
+python scripts/process.py process
 ```
 
 ## License

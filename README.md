@@ -5,7 +5,7 @@ UK house prices since 1953 as monthly time-series. Data comes from the Nationwid
 Data can be found in the `data/data.csv` file. See datapackage.json for
 source info.
 
-Source: <http://www.nationwide.co.uk/hpi/historical.htm>
+Source: [http://www.nationwide.co.uk/hpi/historical.htm](http://www.nationwide.co.uk/hpi/historical.htm)
 
 ### Notes
 

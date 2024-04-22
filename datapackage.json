@@ -72,6 +72,7 @@
   "views": [
     {
       "name": "graph",
+      "resources": ["data"],
       "title": "House Prices in the UK since 1953",
       "specType": "simple",
       "spec": {

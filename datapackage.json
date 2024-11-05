@@ -1,10 +1,10 @@
 {
   "name": "house-prices-uk",
-  "title": "House Prices in the UK since 1953",
+  "title": "House Prices in the UK since 1952",
   "sources": [
     {
       "name": "Nationwide",
-      "path": "http://www.nationwide.co.uk/hpi/historical.htm",
+      "path": "https://www.nationwidehousepriceindex.co.uk/download/uk-house-prices-since-1952",
       "title": "Nationwide"
     }
   ],
@@ -75,7 +75,7 @@
       "resources": [
         "data"
       ],
-      "title": "House Prices in the UK since 1953",
+      "title": "House Prices in the UK since 1952",
       "specType": "simple",
       "spec": {
         "type": "line",

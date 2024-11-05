@@ -36,7 +36,8 @@ From the source XLS file (notes tab):
 Process is recorded and automated in python2 script:
 
 ```bash
-pip install datautil xlrd
+pip install -r scripts/requirements.txt
+python scripts/process.py download
 python scripts/process.py process
 ```
 

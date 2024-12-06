@@ -12,7 +12,7 @@ class Parser:
 
     def download(self):
         """Download the data to the archive (cache)"""
-        nationwide = 'https://www.nationwidehousepriceindex.co.uk/download/uk-house-prices-since-1952'
+        nationwide = 'https://www.nationwidehousepriceindex.co.uk/download/uk-house-price-since-1952'
         urllib.request.urlretrieve(nationwide, nationwide_archive_fp)
         logger.info('Data downloaded to: %s', nationwide_archive_fp)
 
